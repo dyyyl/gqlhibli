@@ -1,6 +1,6 @@
-schema: TBD
+schema: https://gqlhibli.netlify.app/
 generates:
-  server-types.ts:
+  src/generated/graphql.ts:
     config:
       useIndexSignature: true
     plugins:

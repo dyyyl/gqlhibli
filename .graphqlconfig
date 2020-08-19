@@ -1,11 +1,10 @@
 {
   "projects": {
     "ApolloServerTS": {
-      "schemaPath": "schema.graphql",
       "extensions": {
         "endpoints": {
           "dev": {
-            "url": "TBD"
+            "url": "https://gqlhibli.netlify.app/"
           }
         }
       }
