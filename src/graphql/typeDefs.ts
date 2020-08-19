@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-lambda';
 
 const typeDefs = gql`
   type Film {
