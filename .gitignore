@@ -35,3 +35,4 @@ Temporary Items
 node_modules/
 dist
 *.tgz
+functions/bundle
