@@ -6,6 +6,8 @@ import {
   Vehicle,
 } from '../generated/graphql';
 
+import sanitizePerson from '../utils/sanitizePerson';
+
 const resolvers = {
   Query: {
     film: async (
@@ -28,16 +30,20 @@ const resolvers = {
       _source: unknown,
       { id }: { id: string },
       { dataSources }: { dataSources: any },
-    ): Promise<Person> => {
-      return dataSources.ghibliAPI.getPerson(id);
+    ): Promise<Record<string, unknown>> => {
+      const person = await dataSources.ghibliAPI.getPerson(id);
+
+      return sanitizePerson(person, dataSources);
     },
 
     people: async (
       _source: unknown,
-      _: unknown,
+      _variables: unknown,
       { dataSources }: { dataSources: any },
-    ): Promise<Array<Person>> => {
-      return dataSources.ghibliAPI.getPeople();
+    ): Promise<Record<string, unknown>> => {
+      const people = await dataSources.ghibliAPI.getPeople();
+
+      return people.map((person) => sanitizePerson(person, dataSources));
     },
 
     location: async (
@@ -50,7 +56,7 @@ const resolvers = {
 
     locations: async (
       _source: unknown,
-      _: unknown,
+      _variables: unknown,
       { dataSources }: { dataSources: any },
     ): Promise<Array<Location>> => {
       return dataSources.ghibliAPI.getLocations();
@@ -66,7 +72,7 @@ const resolvers = {
 
     species: async (
       _source: unknown,
-      _: unknown,
+      _variables: unknown,
       { dataSources }: { dataSources: any },
     ): Promise<Array<Specimen>> => {
       return dataSources.ghibliAPI.getSpecies();
@@ -82,7 +88,7 @@ const resolvers = {
 
     vehicles: async (
       _source: unknown,
-      _: unknown,
+      _variables: unknown,
       { dataSources }: { dataSources: any },
     ): Promise<Array<Vehicle>> => {
       return dataSources.ghibliAPI.getVehicles();
