@@ -3,19 +3,29 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "bundle": "cpx src/**/**/* functions/bundle",
+    "bundle": "tsc",
     "generate": "gql-gen --config codegen.yml",
-    "start": "nodemon --exec 'ts-node' src/index.ts localhost 4000",
+    "start": "nodemon",
     "test": "jest --watch"
   },
   "keywords": [
+    "typescript",
     "graphql",
+    "api",
+    "netlify",
     "studio ghibli"
   ],
   "author": "Dyl Lavoie <hey@dyyyl.rocks>",
   "license": "MIT",
   "description": "GraphQL wrapper for the Studio Ghibli API <https://ghibliapi.herokuapp.com/>",
-  "repository": "https://github.com/dyyyl/gqlhibli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyyyl/gqlhibli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dyyyl/gqlhibli/issues"
+  },
+  "homepage": "https://github.com/dyyyl/gqlhibli#readme",
   "dependencies": {
     "apollo-datasource-rest": "^0.9.3",
     "apollo-server": "^2.16.1",
