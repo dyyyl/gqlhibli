@@ -1,0 +1,8 @@
+schema: TBD
+generates:
+  server-types.ts:
+    config:
+      useIndexSignature: true
+    plugins:
+      - typescript
+      - typescript-resolvers
