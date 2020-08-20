@@ -50,7 +50,7 @@ const resolvers = {
       _source: unknown,
       { id }: { id: string },
       { dataSources }: { dataSources: any },
-    ): Promise<Location> => {
+    ): Promise<Record<string, unknown>> => {
       return dataSources.ghibliAPI.getLocation(id);
     },
 
@@ -58,7 +58,7 @@ const resolvers = {
       _source: unknown,
       _variables: unknown,
       { dataSources }: { dataSources: any },
-    ): Promise<Array<Location>> => {
+    ): Promise<Record<string, unknown>> => {
       return dataSources.ghibliAPI.getLocations();
     },
 
@@ -66,7 +66,7 @@ const resolvers = {
       _source: unknown,
       { id }: { id: string },
       { dataSources }: { dataSources: any },
-    ): Promise<Specimen> => {
+    ): Promise<Record<string, unknown>> => {
       return dataSources.ghibliAPI.getSpecimen(id);
     },
 
@@ -74,7 +74,7 @@ const resolvers = {
       _source: unknown,
       _variables: unknown,
       { dataSources }: { dataSources: any },
-    ): Promise<Array<Specimen>> => {
+    ): Promise<Record<string, unknown>> => {
       return dataSources.ghibliAPI.getSpecies();
     },
 
@@ -82,7 +82,7 @@ const resolvers = {
       _source: unknown,
       { id }: { id: string },
       { dataSources }: { dataSources: any },
-    ): Promise<Vehicle> => {
+    ): Promise<Record<string, unknown>> => {
       return dataSources.ghibliAPI.getVehicle(id);
     },
 
@@ -90,7 +90,7 @@ const resolvers = {
       _source: unknown,
       _variables: unknown,
       { dataSources }: { dataSources: any },
-    ): Promise<Array<Vehicle>> => {
+    ): Promise<Record<string, unknown>> => {
       return dataSources.ghibliAPI.getVehicles();
     },
   },
